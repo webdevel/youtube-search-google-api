@@ -22,7 +22,6 @@
     }
   },
   "plugins": [
-    "transform-runtime",
-    "add-module-exports"
+    "transform-runtime"
   ]
 }
