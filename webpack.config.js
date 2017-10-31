@@ -1,20 +1,38 @@
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
-const webpack = require('webpack')
 const path = require('path')
-const s = path.sep
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const sourceDir = path.resolve(__dirname, 'src')
 const targetDir = path.resolve(__dirname, 'dist')
 
 module.exports = env => {
+
+  let filename = '[name].js', plugins = []
+
+  if (env.production) {
+
+    filename = '[name].min.js'
+    plugins.push(
+      new UglifyJSPlugin({
+        test: /\.js$/,
+        include: /src/,
+        cache: true,
+        parallel: true,
+        sourceMap: true,
+        uglifyOptions: {
+          ecma: 6,
+          warnings: true
+        }
+      })
+    )
+  }
   return {
     entry: {
       'youtube-search': path.resolve(sourceDir, 'entry.js')
     },
     output: {
-      filename: '[name].js',
+      filename: filename,
       path: targetDir,
-      /*library: 'youtubeSearch',
-      libraryTarget: 'umd'*/
+      library: 'youtubeSearch',
+      libraryTarget: 'umd'
     },
     resolve: {
       alias: {
@@ -25,35 +43,11 @@ module.exports = env => {
       rules: [
         {
           test: /\.js$/,
-          include: /src\/*/,
-          exclude: /node_modules/,
+          include: /src/,
           loader: 'babel-loader'
         }
       ]
     },
-    plugins: [
-      new UglifyJSPlugin({
-        test: /\.js$/,
-        exclude: [
-          /node_modules/,
-          /coverage/,
-          /data/,
-          /lib/,
-          /debug/,
-          /test/,
-          /dist/
-        ],
-        cache: true,
-        parallel: true,
-        sourceMap: true,
-        uglifyOptions: {
-          ecma: 6,
-          warnings: true
-        }
-      })
-    ],
-    devServer: {
-      contentBase: path.join(__dirname, 'dist')
-    }
+    plugins: plugins
   }
 }

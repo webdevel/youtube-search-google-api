@@ -1,5 +1,6 @@
 import queryString from 'querystring'
 import Request from './Request'
+import { searchSpec } from './searchSpecV3'
 
 /**
  * YouTube search request
@@ -77,7 +78,7 @@ export default class SearchRequest extends Request {
    */
   get specs() {
     if (typeof this._specs === 'undefined') {
-      this._specs = require('./search-request-v3.json')
+      this._specs = searchSpec
     }
     return this._specs
   }

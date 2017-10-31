@@ -2,7 +2,8 @@
   "name": "youtube-search-google-api",
   "version": "0.3.0",
   "description": "YouTube Search Google API for Node.js. Search for YouTube videos, channels, playlists and live events via Google API for Node.js.",
-  "main": "lib/entry.js",
+  "main": "dist/youtube-search.js",
+  "module": "lib/entry.js",
   "license": "MIT",
   "author": {
     "name": "Steven Garcia",
@@ -70,21 +71,20 @@
   "files": [
     "LICENSE",
     "README.md",
-    "dist/**/*.json",
     "dist/**/*.js",
-    "lib/**/*.json",
     "lib/**/*.js",
     "package.json"
   ],
   "scripts": {
     "prepare": "npm run build",
-    "build": "rimraf lib/* && babel --out-dir lib src && ncp src/search-request-v3.json lib/search-request-v3.json && npm run webpack",
+    "build": "rimraf lib/* && babel --out-dir lib src && npm run webpack && npm run webpack:dev",
     "clean": "rimraf lib/* dist/* debug/* docs/* coverage/*",
-    "debug": "rimraf debug/* && babel --out-dir debug/src src && babel --out-dir debug/test test && ncp src/search-request-v3.json debug/src/search-request-v3.json && mocha --reporter spec --inspect-brk \"debug/test/*Spec.js\"",
+    "debug": "rimraf debug/* && babel --out-dir debug/src src && babel --out-dir debug/test test && mocha --reporter spec --inspect-brk \"debug/test/*Spec.js\"",
     "doc": "rimraf docs/* && esdoc",
     "test": "cross-env NODE_ENV=test nyc --reporter=text mocha --require babel-register --timeout 9000",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "webpack": "mkdirp dist && rimraf dist/* && ncp src/search-request-v3.json dist/search-request-v3.json && webpack --env.production --env.NODE_ENV=production"
+    "webpack": "rimraf dist/* && webpack --env.production --env.NODE_ENV=production",
+    "webpack:dev": "webpack --env.development --env.NODE_ENV=development"
   },
   "contributors": [
     {
