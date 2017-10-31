@@ -1,0 +1,100 @@
+{
+  "name": "youtube-search-google-api",
+  "version": "0.0.0",
+  "description": "YouTube Search Google API for Node.js. Search for YouTube videos, channels, playlists and live events via Google API for Node.js.",
+  "main": "lib/entry.js",
+  "license": "MIT",
+  "author": {
+    "name": "Steven Garcia",
+    "url": "https://webdevel.neocities.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/webdevel/youtube-search-google-api"
+  },
+  "bugs": {
+    "url": "https://github.com/webdevel/youtube-search-google-api/issues"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-istanbul": "^4.1.5",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "coveralls": "^3.0.0",
+    "cross-env": "^5.0.5",
+    "esdoc": "^1.0.3",
+    "esdoc-standard-plugin": "^1.0.0",
+    "mocha": "^4.0.1",
+    "ncp": "^2.0.0",
+    "nyc": "^11.2.1",
+    "rimraf": "^2.6.2",
+    "sinon": "^4.0.1",
+    "sinon-chai": "^2.14.0",
+    "uglifyjs-webpack-plugin": "^1.0.1",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.3"
+  },
+  "keywords": [
+    "youtube",
+    "search",
+    "google",
+    "api",
+    "youtube-search",
+    "youtube-google-api",
+    "google-api",
+    "google-api-youtube",
+    "google-api-youtube-search",
+    "youtube-search-google-api",
+    "youtube-videos",
+    "youtube-channels",
+    "youtube-playlists",
+    "video",
+    "videos",
+    "channel",
+    "channels",
+    "playlist",
+    "playlists",
+    "node",
+    "nodejs",
+    "node.js",
+    "find"
+  ],
+  "files": [
+    "LICENSE",
+    "README.md",
+    "dist/**/*.json",
+    "dist/**/*.js",
+    "lib/**/*.json",
+    "lib/**/*.js",
+    "package.json"
+  ],
+  "scripts": {
+    "prepare": "npm run build",
+    "build": "rimraf lib/* && babel --out-dir lib src && ncp src/search-request-v3.json lib/search-request-v3.json",
+    "clean": "rimraf lib/* dist/* debug/* docs/* coverage/*",
+    "debug": "rimraf debug/* && babel --out-dir debug/src src && babel --out-dir debug/test test && ncp src/search-request-v3.json debug/src/search-request-v3.json && mocha --reporter spec --inspect-brk \"debug/test/*Spec.js\"",
+    "doc": "rimraf docs/* && esdoc",
+    "test": "cross-env NODE_ENV=test nyc --reporter=text mocha --require babel-register --timeout 9000",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "webpack": "rimraf dist/* && ncp src/search-request-v3.json dist/search-request-v3.json && webpack --env.production --env.NODE_ENV=production",
+    "start": "ncp example/index.html dist/index.html && ncp example/index.js dist/index.js && webpack-dev-server"
+  },
+  "contributors": [
+    {
+      "name": "Steven Garcia",
+      "url": "https://webdevel.neocities.org"
+    }
+  ],
+  "dependencies": {
+    "request": "^2.83.0",
+    "xhr": "^2.4.0"
+  }
+}

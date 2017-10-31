@@ -1,0 +1,25 @@
+sudo: false
+language: node_js
+node_js:
+- 6
+- 8
+install:
+- npm install
+script:
+- npm run test
+branches:
+  only:
+  - develop
+  - master
+notifications:
+  email:
+    on_success: never
+    on_failure: change
+after_success:
+- npm run coverage
+cache:
+  directories:
+  - node_modules
+env:
+  global:
+    secure: W+PhqGKq+7jL9cARkLwyn4AES/IXZr42LDzzdKJFNvHth06dVDUN1O7CxFLodGFiTqMniyYc4NO4GjD4n9UjCad1DW+CyN/q5YXso5rPnu7LTDRUgQloOmm9Rhb/qydYnZJPUHSRvqu2E0xhyy4ovfTzFz+hxSZdMUeHCH/qlF/T7G3VRLs/lEQi0OzjjIkLbQBgkkaCNUEIl7BZZAZJJ7FqHt3GDP7QEnSehnbmAags+P9/Y7lN8WvUqV2P2FnyJJ4f6VJFMJHG0rXzfi13OPbaKE8xq525H6JVQODJJgQ49ppqr5iLP/jWdb91UJI1l/US3EcZtjWYHEUdovUhbJAYaHz+1yFLNT0tkxe08uS/iVx699qj9M+PcpMjhk4eUCSkgYmB9E4dLoewx6BL/kbWZ2RpG5YXsLRiTXkg+j8UoNpqjUG5MF1T4/omCg74IuM9YwYvEWgv56DW2S27ZBfv9UKqDcjh3sgzZ3vdFXlVlbhUoIj6avbpK19+Gnpf90KxwKbJezQ9HlqlZPC5TZ5r/rIHY6D62QCyAVz2x5591r3N5+Y24P1akUDxZyqOjgdh+wp4VEvpdfBdZjj29sw+N5Ci90w6srBXLcxkGd8oOBithE+oO3+9DvhI3UCDZoEdsamKO+narGf/uJYmBhb8UaRs1y6/OWvdc7a4Eoo=

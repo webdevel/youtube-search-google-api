@@ -1,0 +1,268 @@
+Abkhazia	GE
+Afghanistan	AF
+Aland	AX
+Albania	AL
+Algeria	DZ
+American Samoa	AS
+Andorra	AD
+Angola	AO
+Anguilla	AI
+Antigua and Barbuda	AG
+Argentina	AR
+Armenia	AM
+Aruba	AW
+Ascension	AC
+Ashmore and Cartier Islands	AU
+Australia	AU
+Australian Antarctic Territory	AQ
+Austria	AT
+Azerbaijan	AZ
+Bahamas, The	BS
+Bahrain	BH
+Baker Island	UM
+Bangladesh	BD
+Barbados	BB
+Belarus	BY
+Belgium	BE
+Belize	BZ
+Benin	BJ
+Bermuda	BM
+Bhutan	BT
+Bolivia	BO
+Bosnia and Herzegovina	BA
+Botswana	BW
+Bouvet Island	BV
+Brazil	BR
+British Antarctic Territory	AQ
+British Indian Ocean Territory	IO
+British Sovereign Base Areas
+British Virgin Islands	VG
+Brunei	BN
+Bulgaria	BG
+Burkina Faso	BF
+Burundi	BI
+Cambodia	KH
+Cameroon	CM
+Canada	CA
+Cape Verde	CV
+Cayman Islands	KY
+Central African Republic	CF
+Chad	TD
+Chile	CL
+China, People's Republic of	CN
+China, Republic of (Taiwan)	TW
+Christmas Island	CX
+Clipperton Island	PF
+Cocos (Keeling) Islands	CC
+Colombia	CO
+Comoros	KM
+Congo, (Congo  Brazzaville)	CG
+Congo, (Congo  Kinshasa)	CD
+Cook Islands	CK
+Coral Sea Islands	AU
+Costa Rica	CR
+Cote d'Ivoire (Ivory Coast)	CI
+Croatia	HR
+Cuba	CU
+Cyprus	CY
+Czech Republic	CZ
+Denmark	DK
+Djibouti	DJ
+Dominica	DM
+Dominican Republic	DO
+Ecuador	EC
+Egypt	EG
+El Salvador	SV
+Equatorial Guinea	GQ
+Eritrea	ER
+Estonia	EE
+Ethiopia	ET
+Falkland Islands (Islas Malvinas)	FK
+Faroe Islands	FO
+Fiji	FJ
+Finland	FI
+France	FR
+French Guiana	GF
+French Polynesia	PF
+French Southern and Antarctic Lands	TF
+Gabon	GA
+Gambia, The	GM
+Georgia	GE
+Germany	DE
+Ghana	GH
+Gibraltar	GI
+Greece	GR
+Greenland	GL
+Grenada	GD
+Guadeloupe	GP
+Guam	GU
+Guatemala	GT
+Guernsey	GG
+Guinea	GN
+Guinea-Bissau	GW
+Guyana	GY
+Haiti	HT
+Heard Island and McDonald Islands	HM
+Honduras	HN
+Hong Kong	HK
+Howland Island	UM
+Hungary	HU
+Iceland	IS
+India	IN
+Indonesia	ID
+Iran	IR
+Iraq	IQ
+Ireland	IE
+Isle of Man	IM
+Israel	IL
+Italy	IT
+Jamaica	JM
+Japan	JP
+Jarvis Island	UM
+Jersey	JE
+Johnston Atoll	UM
+Jordan	JO
+Kazakhstan	KZ
+Kenya	KE
+Kingman Reef	UM
+Kiribati	KI
+Korea, North	KP
+Korea, South	KR
+Kuwait	KW
+Kyrgyzstan	KG
+Laos	LA
+Latvia	LV
+Lebanon	LB
+Lesotho	LS
+Liberia	LR
+Libya	LY
+Liechtenstein	LI
+Lithuania	LT
+Luxembourg	LU
+Macau	MO
+Macedonia	MK
+Madagascar	MG
+Malawi	MW
+Malaysia	MY
+Maldives	MV
+Mali	ML
+Malta	MT
+Marshall Islands	MH
+Martinique	MQ
+Mauritania	MR
+Mauritius	MU
+Mayotte	YT
+Mexico	MX
+Micronesia	FM
+Midway Islands	UM
+Moldova	MD
+Monaco	MC
+Mongolia	MN
+Montenegro	ME
+Montserrat	MS
+Morocco	MA
+Mozambique	MZ
+Myanmar (Burma)	MM
+Nagorno-Karabakh	AZ
+Namibia	NA
+Nauru	NR
+Navassa Island	UM
+Nepal	NP
+Netherlands	NL
+Netherlands Antilles	AN
+New Caledonia	NC
+New Zealand	NZ
+Nicaragua	NI
+Niger	NE
+Nigeria	NG
+Niue	NU
+Norfolk Island	NF
+Northern Cyprus	CY
+Northern Mariana Islands	MP
+Norway	NO
+Oman	OM
+Pakistan	PK
+Palau	PW
+Palmyra Atoll	UM
+Panama	PA
+Papua New Guinea	PG
+Paraguay	PY
+Peru	PE
+Peter I Island	AQ
+Philippines	PH
+Pitcairn Islands	PN
+Poland	PL
+Portugal	PT
+Pridnestrovie (Transnistria)	MD
+Puerto Rico	PR
+Qatar	QA
+Queen Maud Land	AQ
+Reunion	RE
+Romania	RO
+Ross Dependency	AQ
+Russia	RU
+Rwanda	RW
+Saint Barthelemy	GP
+Saint Helena	SH
+Saint Kitts and Nevis	KN
+Saint Lucia	LC
+Saint Martin	GP
+Saint Pierre and Miquelon	PM
+Saint Vincent and the Grenadines	VC
+Samoa	WS
+San Marino	SM
+Sao Tome and Principe	ST
+Saudi Arabia	SA
+Senegal	SN
+Serbia	RS
+Seychelles	SC
+Sierra Leone	SL
+Singapore	SG
+Slovakia	SK
+Slovenia	SI
+Solomon Islands	SB
+Somalia	SO
+Somaliland	SO
+South Africa	ZA
+South Georgia & South Sandwich Islands	GS
+South Ossetia	GE
+Spain	ES
+Sri Lanka	LK
+Sudan	SD
+Suriname	SR
+Svalbard	SJ
+Swaziland	SZ
+Sweden	SE
+Switzerland	CH
+Syria	SY
+Tajikistan	TJ
+Tanzania	TZ
+Thailand	TH
+Timor-Leste (East Timor)	TL
+Togo	TG
+Tokelau	TK
+Tonga	TO
+Trinidad and Tobago	TT
+Tristan da Cunha	TA
+Tunisia	TN
+Turkey	TR
+Turkmenistan	TM
+Turks and Caicos Islands	TC
+Tuvalu	TV
+U.S. Virgin Islands	VI
+Uganda	UG
+Ukraine	UA
+United Arab Emirates	AE
+United Kingdom	GB
+United States	US
+Uruguay	UY
+Uzbekistan	UZ
+Vanuatu	VU
+Vatican City	VA
+Venezuela	VE
+Vietnam	VN
+Wake Island	UM
+Wallis and Futuna	WF
+Yemen	YE
+Zambia	ZM
+Zimbabwe	ZW
