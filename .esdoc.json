@@ -1,20 +1,15 @@
 {
-  "source": "src",
-  "destination": "docs",
+  "source": "./src",
+  "destination": "./docs",
   "debug": false,
-  "package": "package.json",
+  "package": "./package.json",
+  "index": "./README.md",
   "excludes": [ "(spec|Spec|test|Test)\\.js$" ],
   "plugins": [
     {
       "name": "esdoc-standard-plugin",
       "option": {
-        "lint": {
-          "enable": true
-        },
         "coverage": {
-          "enable": true
-        },
-        "typeInference": {
           "enable": true
         },
         "brand": {
@@ -23,8 +18,7 @@
           "repository": "https://github.com/webdevel/youtube-search-google-api"
         },
         "test": {
-          "type": "mocha",
-          "source": "test",
+          "source": "./test",
           "includes": [ "(spec|Spec|test|Test)\\.js$" ]
         }
       }
