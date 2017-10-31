@@ -1,0 +1,9 @@
+src
+test
+docs
+debug
+coverage
+.travis.yml
+.gitignore
+.nyc_output
+.tern-project

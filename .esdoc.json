@@ -1,0 +1,33 @@
+{
+  "source": "src",
+  "destination": "docs",
+  "debug": false,
+  "package": "package.json",
+  "excludes": [ "(spec|Spec|test|Test)\\.js$" ],
+  "plugins": [
+    {
+      "name": "esdoc-standard-plugin",
+      "option": {
+        "lint": {
+          "enable": true
+        },
+        "coverage": {
+          "enable": true
+        },
+        "typeInference": {
+          "enable": true
+        },
+        "brand": {
+          "title": "YouTube Search Google API for Node.js Documentation",
+          "description": "YouTube Search Google API for Node.js Search for YouTube videos, channels, playlists and live events via Google API for Node.js.",
+          "repository": "https://github.com/webdevel/youtube-search-google-api"
+        },
+        "test": {
+          "type": "mocha",
+          "source": "test",
+          "includes": [ "(spec|Spec|test|Test)\\.js$" ]
+        }
+      }
+    }
+  ]
+}

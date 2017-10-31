@@ -1,0 +1,21 @@
+{
+  "presets": [
+    "env"
+  ],
+  "env": {
+    "test": {
+      "plugins": [
+        "istanbul"
+      ]
+    },
+    "development": {
+      "plugins": [
+        "transform-es2015-modules-commonjs"
+      ],
+      "sourceMaps": true
+    }
+  },
+  "plugins": [
+    "transform-runtime"
+  ]
+}
