@@ -8,6 +8,12 @@
         "istanbul"
       ]
     },
+    "production": {
+      "plugins": [
+        "transform-es2015-modules-commonjs"
+      ],
+      "sourceMaps": true
+    },
     "development": {
       "plugins": [
         "transform-es2015-modules-commonjs"
@@ -16,6 +22,7 @@
     }
   },
   "plugins": [
-    "transform-runtime"
+    "transform-runtime",
+    "add-module-exports"
   ]
 }

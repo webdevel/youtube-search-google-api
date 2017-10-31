@@ -85,7 +85,7 @@
     "test": "cross-env NODE_ENV=test nyc --reporter=text mocha --require babel-register --timeout 9000",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "webpack": "rimraf dist/* && ncp src/search-request-v3.json dist/search-request-v3.json && webpack --env.production --env.NODE_ENV=production",
-    "start": "ncp example/index.html dist/index.html && ncp example/index.js dist/index.js && webpack-dev-server"
+    "start": "webpack-dev-server"
   },
   "contributors": [
     {

@@ -2,7 +2,7 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const webpack = require('webpack')
 const path = require('path')
 const s = path.sep
-const sourceDir = path.resolve(__dirname, 'lib')
+const sourceDir = path.resolve(__dirname, 'src')
 const targetDir = path.resolve(__dirname, 'dist')
 
 module.exports = env => {
@@ -16,35 +16,29 @@ module.exports = env => {
       /*library: 'youtubeSearch',
       libraryTarget: 'umd'*/
     },
+    resolve: {
+      alias: {
+        'request$': 'xhr'
+      }
+    },
     module: {
-      noParse: [
-        /node_modules/,
-        /data/,
-        /debug/,
-        /dist/,
-        /example/,
-        /coverage/,
-        /lib/,
-        /test/,
-        /LICENSE/,
-        /README\.md/
-      ],
       rules: [
         {
           test: /\.js$/,
           include: /src\/*/,
+          exclude: /node_modules/,
           loader: 'babel-loader'
         }
       ]
     },
     plugins: [
-      /*new UglifyJSPlugin({
+      new UglifyJSPlugin({
         test: /\.js$/,
         exclude: [
           /node_modules/,
           /coverage/,
           /data/,
-          /src/,
+          /lib/,
           /debug/,
           /test/,
           /dist/
@@ -56,7 +50,7 @@ module.exports = env => {
           ecma: 6,
           warnings: true
         }
-      })*/
+      })
     ],
     devServer: {
       contentBase: path.join(__dirname, 'dist')
