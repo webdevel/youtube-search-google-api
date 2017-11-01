@@ -51,32 +51,49 @@ export default class SearchRequest extends Request {
     const q = queryString.stringify(p)
     return `${this.specs.query}${q}`
   }
+  /**
+   * Validate query parameter names and values where feasible
+   * @param  {Object}  query Object representing query name value pairs
+   * @return {Boolean}       Whether or not the query parameters are valid
+   */
   isValidQueryParameters(query) {
-    let result = true, params = this.specs.parameters
+    let result = true, params = this.specs.parameters, index
+    const keys = Object.keys(query), length = keys.length
 
-    Object.keys(query).forEach(key => {
+    if (length === 0) return false
+
+    for (index = 0; index < length; ++index) {
+
+      const key = keys[index]
       let param = find(params, { 'name': key })
+
       if (typeof param === 'undefined') {
         result = false
         throw new Error('Invalid query parameter name specified: ' + key)
-      } else {
-        if (Array.isArray(param.values) && param.values.length > 0) {
 
-          if ((typeof param.values[0] === 'string' || typeof param.values[0] === 'number') && !includes(param.values, query[key])) {
+      } else if (Array.isArray(param.values) && param.values.length > 0) {
+
+        // @todo validate fields comma delimited parameter values
+        // @todo validate publishedAfter/publishedBefore date values with regular expressions
+        // @todo validate location values with regex. example 37.42307,-122.08427
+        // @todo validate locationRadius values with regex. example 15m, 5km, 10ft, and 0.7mi
+        // @todo validate regionCode values
+        // @todo validate relevanceLanguage values
+
+        if ((typeof param.values[0] === 'string' || typeof param.values[0] === 'number') && !includes(param.values, query[key])) {
+          result = false
+          throw new Error(`Invalid query parameter value for ${key} specified: ${query[key]}`)
+
+        } else if (typeof param.values[0] !== 'string' && typeof param.values[0] !== 'number') {
+
+          let value = find(param.values, { 'value': query[key]})
+          if (typeof value === 'undefined') {
             result = false
-            throw new Error('Invalid query parameter value specified: ' + query[key])
-
-          } else if (typeof param.values[0] !== 'string' && typeof param.values[0] !== 'number') {
-
-            let value = find(param.values, { 'value': query[key]})
-            if (typeof value === 'undefined') {
-              result = false
-              throw new Error('Invalid query parameter value specified: ' + query[key])
-            }
+            throw new Error(`Invalid query parameter value for ${key} specified: ${query[key]}`)
           }
         }
       }
-    })
+    }
     return result
   }
   /**

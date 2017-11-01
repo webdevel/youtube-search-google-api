@@ -47,14 +47,14 @@ describe('DefaultTransporter', function() {
   it('Should have undefined default successor', function() {
     expect(transporter.successor).to.be.undefined
   })
-  it('Should not invoke perform when successor is undefined', function() {
+  it('Should not invoke successor perform when successor is undefined', function() {
     const successor = new Transporter()
     stub = sinon.stub(successor, 'perform')
     transporter.successor = stub
     transporter.delegate(request)
     stub.should.not.have.been.called
   })
-  it('Should invoke perform when successor is set', function() {
+  it('Should invoke successor perform when successor is set', function() {
     const successor = new Transporter()
     stub = sinon.stub(successor, 'perform')
     transporter.successor = successor

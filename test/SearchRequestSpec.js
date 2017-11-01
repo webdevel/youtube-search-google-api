@@ -65,6 +65,21 @@ describe('SearchRequest', function() {
     request.queryParameters.should.include.keys('part', 'key', 'q')
     request.query.should.equal(`?part=snippet&key=${TEST_STR}&q=pumpkin%7Challoween%2Bdog%20-cat`)
   })
+  it('Should allow fields query parameter value to contain comma delimited field names', function() {
+    request.parameters = {
+      query: {
+        fields: 'nextPageToken,prevPageToken,regionCode,pageInfo/totalResults,items/id/videoId,items/snippet/publishedAt,items/snippet/title,items/snippet/description,items/snippet/channelId,items/snippet/channelTitle'
+      }
+    }
+    request.queryParameters.should.include.keys('fields', 'part')
+  })
+  it('Should invalidate user specified empty query parameters', function() {
+    request.parameters = {
+      query: {}
+    }
+    request.queryParameters.should.contain.all.keys('part')
+    request.isValidQueryParameters(request.parameters.query).should.be.false
+  })
   it('Should validate query parameter names', function() {
     request.parameters = {
       query: {

@@ -52,7 +52,8 @@ export const searchSpec = {
       "brief": "Selector specifying which fields to include in a partial response.",
       "name": "fields",
       "type": "string",
-      "values": [
+      "values": [],
+      "defaults": [
         "etag",
         "eventId",
         "items",
@@ -236,7 +237,8 @@ export const searchSpec = {
       "brief": "The publishedAfter parameter indicates that the API response should only contain resources created after the specified time. The value is an RFC 3339 formatted date-time value (1970-01-01T00:00:00Z).",
       "name": "publishedAfter",
       "type": "string",
-      "values": [
+      "values": [],
+      "defaults": [
         "2017-08-01T00:00:00Z",
         "2017-04-01T00:00:00Z",
         "2017-01-01T00:00:00Z"
@@ -246,7 +248,8 @@ export const searchSpec = {
       "brief": "The publishedBefore parameter indicates that the API response should only contain resources created before the specified time. The value is an RFC 3339 formatted date-time value (1970-01-01T00:00:00Z).",
       "name": "publishedBefore",
       "type": "string",
-      "values": [
+      "values": [],
+      "defaults": [
         "2006-08-01T00:00:00Z",
         "2006-04-01T00:00:00Z",
         "2006-01-01T00:00:00Z"
