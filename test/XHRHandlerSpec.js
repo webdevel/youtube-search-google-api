@@ -4,18 +4,18 @@ import sinonChai from 'sinon-chai'
 chai.should()
 chai.use(sinonChai)
 import SearchRequest from '../src/SearchRequest'
-import XHRTransporter from '../src/XHRTransporter'
-import DefaultTransporter from '../src/DefaultTransporter'
-import Transporter from '../src/Transporter'
+import XHRHandler from '../src/XHRHandler'
+import HTTPHandler from '../src/HTTPHandler'
+import Handler from '../src/Handler'
 
-describe('XHRTransporter', function() {
+describe('XHRHandler', function() {
 
   const TEST_STR = 'TEST_STR'
-  let request, transporter, stub
+  let request, handler, stub
 
   beforeEach(function() {
     request = new SearchRequest()
-    transporter = new XHRTransporter()
+    handler = new XHRHandler()
     stub = sinon.stub()
   })
   afterEach(function() {
@@ -32,20 +32,20 @@ describe('XHRTransporter', function() {
       stub.should.have.been.calledOnce
       done()
     })
-    transporter.xhr = stub
-    transporter.perform(request)
+    handler.client = stub
+    handler.perform(request)
   })
   it('Should have default successor', function() {
-    expect(transporter.successor).to.be.an.instanceof(Transporter)
+    expect(handler.successor).to.be.an.instanceof(Handler)
   })
-  it('Should have default xhr implementation', function() {
-    expect(transporter.xhr).to.not.be.undefined
+  it('Should have default client implementation', function() {
+    expect(handler.client).to.not.be.undefined
   })
-  it('Should invoke perform on successor when xhr.open evaluates to false', function() {
-    const successor = new Transporter()
+  it('Should invoke perform on successor when client.open evaluates to false', function() {
+    const successor = new Handler()
     stub = sinon.stub(successor, 'perform')
-    transporter.successor = successor
-    transporter.perform(request)
+    handler.successor = successor
+    handler.perform(request)
     successor.perform.should.have.been.called
   })
 })

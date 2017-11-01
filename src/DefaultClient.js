@@ -1,25 +1,25 @@
-import XHRTransporter from './XHRTransporter'
+import XHRHandler from './XHRHandler'
 import Client from './Client'
 
 /**
- * Default implementation of client. Client invokes transporter to handle requests.
+ * Default implementation of client. Client invokes handler to handle requests.
  */
 export default class DefaultClient extends Client {
   /**
-   * Getter for transporter. Provides default transporter if undefined.
-   * @return {Transporter} Handles requests
+   * Getter for handler. Provides default handler if undefined.
+   * @return {Handler} Handles requests
    */
-  get transporter() {
-    if (typeof this._transporter === 'undefined') {
-      this._transporter = new XHRTransporter()
+  get handler() {
+    if (typeof this._handler === 'undefined') {
+      this._handler = new XHRHandler()
     }
-    return this._transporter
+    return this._handler
   }
   /**
-   * Setter for transporter.
-   * @param  {Transporter} transporter Handles requests
+   * Setter for handler.
+   * @param  {Handler} handler Handles requests
    */
-  set transporter(transporter) {
-    this._transporter = transporter
+  set handler(handler) {
+    this._handler = handler
   }
 }
