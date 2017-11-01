@@ -56,12 +56,62 @@ describe('SearchRequest', function() {
     request.query.should.equal('?part=snippet')
   })
   it('Should allow user specified query', function() {
-    request.queryParameters = {
-      key: TEST_STR,
-      q: 'pumpkin|halloween+dog -cat'
+    request.parameters = {
+      query: {
+        key: TEST_STR,
+        q: 'pumpkin|halloween+dog -cat'
+      }
     }
     request.queryParameters.should.include.keys('part', 'key', 'q')
     request.query.should.equal(`?part=snippet&key=${TEST_STR}&q=pumpkin%7Challoween%2Bdog%20-cat`)
+  })
+  it('Should validate query parameter names', function() {
+    request.parameters = {
+      query: {
+        channelType: 'any',
+        fields: 'items/snippet',
+        maxResults: 50,
+        videoCategoryId: '15'
+      }
+    }
+    request.queryParameters.should.include.keys('channelType', 'fields')
+    request.query.should.equal('?part=snippet&channelType=any&fields=items%2Fsnippet&maxResults=50&videoCategoryId=15')
+  })
+  it('Should throw error on invalid parameter name', function() {
+    try {
+      expect(request.parameters = {
+        query: {
+          invalidParameterName: 'invalidParameterValue'
+        }
+      }).to.throw(Error, 'parameter name')
+    } catch (error) {}
+  })
+  it('Should throw error on invalid parameter value of object type', function() {
+    try {
+      expect(request.parameters = {
+        query: {
+          videoCategoryId: 'invalidValue'
+        }
+      }).to.throw(Error, 'parameter value')
+    } catch (error) {}
+  })
+  it('Should throw error on invalid parameter value of string type', function() {
+    try {
+      expect(request.parameters = {
+        query: {
+          type: 'invalidValue'
+        }
+      }).to.throw(Error, 'parameter value')
+    } catch (error) {}
+  })
+  it('Should throw error on invalid parameter value of number type', function() {
+    try {
+      expect(request.parameters = {
+        query: {
+          maxResults: 5150
+        }
+      }).to.throw(Error, 'parameter value')
+    } catch (error) {}
   })
   it('Should have property method', function() {
     request.should.have.property('method')
@@ -86,8 +136,8 @@ describe('SearchRequest', function() {
     request.url = TEST_STR
     request.url.should.equal(TEST_STR)
   })
-  it('Should have undefined default parameters', function() {
-    expect(request.parameters).to.be.undefined
+  it('Should have default parameters', function() {
+    expect(request.parameters).to.be.an('Object')
   })
   it('Should have undefined default callback', function() {
     expect(request.callback).to.be.undefined

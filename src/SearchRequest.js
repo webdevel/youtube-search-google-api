@@ -1,6 +1,7 @@
 import queryString from 'querystring'
 import Request from './Request'
 import { searchSpec } from './searchSpecV3'
+import { includes, find } from 'lodash'
 
 /**
  * YouTube search request
@@ -49,6 +50,53 @@ export default class SearchRequest extends Request {
     const p = this.queryParameters
     const q = queryString.stringify(p)
     return `${this.specs.query}${q}`
+  }
+  isValidQueryParameters(query) {
+    let result = true, params = this.specs.parameters
+
+    Object.keys(query).forEach(key => {
+      let param = find(params, { 'name': key })
+      if (typeof param === 'undefined') {
+        result = false
+        throw new Error('Invalid query parameter name specified: ' + key)
+      } else {
+        if (Array.isArray(param.values) && param.values.length > 0) {
+
+          if ((typeof param.values[0] === 'string' || typeof param.values[0] === 'number') && !includes(param.values, query[key])) {
+            result = false
+            throw new Error('Invalid query parameter value specified: ' + query[key])
+
+          } else if (typeof param.values[0] !== 'string' && typeof param.values[0] !== 'number') {
+
+            let value = find(param.values, { 'value': query[key]})
+            if (typeof value === 'undefined') {
+              result = false
+              throw new Error('Invalid query parameter value specified: ' + query[key])
+            }
+          }
+        }
+      }
+    })
+    return result
+  }
+  /**
+   * Getter for parameters.
+   * @return {Object} Headers and query request parameters
+   */
+  get parameters() {
+    return this._parameters
+  }
+  /**
+   * Setter for parameters.
+   * @param  {Object} parameters Headers and query request parameters
+   */
+  set parameters(parameters) {
+    if (typeof parameters.query !== 'undefined') {
+      if (this.isValidQueryParameters(parameters.query)) {
+        this.queryParameters = parameters.query
+      }
+    }
+    this._parameters = parameters
   }
   /**
    * Getter for Container of query parameters
