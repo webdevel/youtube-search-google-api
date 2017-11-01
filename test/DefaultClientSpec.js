@@ -4,36 +4,36 @@ import sinonChai from 'sinon-chai'
 chai.should()
 chai.use(sinonChai)
 import SearchRequest from '../src/SearchRequest'
-import Transporter from '../src/Transporter'
+import Handler from '../src/Handler'
 import DefaultClient from '../src/DefaultClient'
 
 describe('DefaultClient', function() {
 
-  let request, stub, client, transporter
+  let request, stub, client, handler
 
   beforeEach(function() {
     request = new SearchRequest()
     client = new DefaultClient()
-    transporter = new Transporter()
+    handler = new Handler()
     stub = sinon.stub()
   })
   afterEach(function() {
   })
-  it('Should have property transporter', function() {
-    client.should.have.property('transporter')
+  it('Should have property handler', function() {
+    client.should.have.property('handler')
   })
-  it('Should have default transporter', function() {
-    client.transporter.should.be.an.instanceof(Transporter)
+  it('Should have default handler', function() {
+    client.handler.should.be.an.instanceof(Handler)
   })
-  it('Should allow user specified transporter', function() {
-    client.transporter = transporter
-    client.transporter.should.equal(transporter)
+  it('Should allow user specified handler', function() {
+    client.handler = handler
+    client.handler.should.equal(handler)
   })
-  it('Should invoke transporter perform', function() {
-    stub = sinon.stub(transporter, 'perform')
-    client.transporter = transporter
+  it('Should invoke handler perform', function() {
+    stub = sinon.stub(handler, 'perform')
+    client.handler = handler
     client.invoke(request)
-    transporter.perform.should.have.been.calledOnce
+    handler.perform.should.have.been.calledOnce
     stub.restore
   })
 })

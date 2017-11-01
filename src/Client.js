@@ -4,17 +4,17 @@
 export default class Client {
   /**
    *  Create client
-   * @param  {Transporter} transporter Transporter to handle request
+   * @param  {Handler} handler Handler to handle request
    * @return {Client}
    */
-  constructor(transporter) {
-    this.transporter = transporter
+  constructor(handler) {
+    this.handler = handler
   }
   /**
-   * Invoke request on transporter
+   * Invoke request on handler
    * @param  {Request} request Request to handle
    */
   invoke(request) {
-    this.transporter.perform(request)
+    this.handler.perform(request)
   }
 }

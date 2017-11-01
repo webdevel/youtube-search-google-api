@@ -4,17 +4,17 @@ import sinonChai from 'sinon-chai'
 chai.should()
 chai.use(sinonChai)
 import SearchRequest from '../src/SearchRequest'
-import DefaultTransporter from '../src/DefaultTransporter'
-import Transporter from '../src/Transporter'
+import HTTPHandler from '../src/HTTPHandler'
+import Handler from '../src/Handler'
 
-describe('DefaultTransporter', function() {
+describe('HTTPHandler', function() {
 
   const TEST_STR = 'TEST_STR'
-  let request, transporter, stub
+  let request, handler, stub
 
   beforeEach(function() {
     request = new SearchRequest()
-    transporter = new DefaultTransporter()
+    handler = new HTTPHandler()
     stub = sinon.stub()
   })
   afterEach(function() {
@@ -29,7 +29,7 @@ describe('DefaultTransporter', function() {
       JSON.parse(body).should.include.keys('error')
       done()
     })
-    transporter.perform(request)
+    handler.perform(request)
   })
   it('Should callback user specified function', function(done) {
     const params = {}, index = 1, err = null, res = {}, bod = { TEST_STR: TEST_STR }
@@ -41,28 +41,28 @@ describe('DefaultTransporter', function() {
       stub.should.have.been.calledOnce
       done()
     })
-    transporter.request = stub
-    transporter.perform(request)
+    handler.client = stub
+    handler.perform(request)
   })
   it('Should have undefined default successor', function() {
-    expect(transporter.successor).to.be.undefined
+    expect(handler.successor).to.be.undefined
   })
   it('Should not invoke successor perform when successor is undefined', function() {
-    const successor = new Transporter()
+    const successor = new Handler()
     stub = sinon.stub(successor, 'perform')
-    transporter.successor = stub
-    transporter.delegate(request)
+    handler.successor = stub
+    handler.delegate(request)
     stub.should.not.have.been.called
   })
   it('Should invoke successor perform when successor is set', function() {
-    const successor = new Transporter()
+    const successor = new Handler()
     stub = sinon.stub(successor, 'perform')
-    transporter.successor = successor
-    transporter.delegate(request)
+    handler.successor = successor
+    handler.delegate(request)
     successor.perform.should.have.been.called
   })
   it('Should have undefined result of default perform method', function() {
-    const t = new Transporter(transporter)
+    const t = new Handler(handler)
     expect(t.perform(request)).to.be.undefined
   })
 })

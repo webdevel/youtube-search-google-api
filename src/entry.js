@@ -1,6 +1,6 @@
 export { default as YouTube } from './YouTube'
 export { default as SearchRequest } from './SearchRequest'
 export { default as DefaultClient } from './DefaultClient'
-export { default as DefaultTransporter } from './DefaultTransporter'
-export { default as XHRTransporter } from './XHRTransporter'
+export { default as HTTPHandler } from './HTTPHandler'
+export { default as XHRHandler } from './XHRHandler'
 export { default as searchSpec } from './searchSpecV3.js'

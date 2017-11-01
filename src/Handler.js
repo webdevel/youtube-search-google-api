@@ -1,25 +1,25 @@
 /**
- * Transporter to handle requests
- * @type {Transporter}
+ * Handler to handle requests
+ * @type {Handler}
  */
-export default class Transporter {
+export default class Handler {
   /**
-   * Create Transporter
-   * @param  {Transporter} successor Successor to delegate request if desired
+   * Create Handler
+   * @param  {Handler} successor Successor to delegate request if desired
    */
   constructor(successor) {
     this.successor = successor
   }
   /**
    * Getter for successor
-   * @return {Transporter} Successor to delegate request if desired
+   * @return {Handler} Successor to delegate request if desired
    */
   get successor() {
     return this._successor
   }
   /**
    * Setter for successor
-   * @param  {Transporter} successor Successor to delegate request if desired
+   * @param  {Handler} successor Successor to delegate request if desired
    */
   set successor(successor) {
     this._successor = successor
@@ -31,7 +31,7 @@ export default class Transporter {
    * @param  {Request} request User specified request
    */
   delegate(request) {
-    if (this.successor instanceof Transporter) {
+    if (this.successor instanceof Handler) {
       this.successor.perform(request)
     }
   }
