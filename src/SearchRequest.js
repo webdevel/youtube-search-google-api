@@ -91,10 +91,8 @@ export default class SearchRequest extends Request {
    * @param  {Object} parameters Headers and query request parameters
    */
   set parameters(parameters) {
-    if (typeof parameters.query !== 'undefined') {
-      if (this.isValidQueryParameters(parameters.query)) {
-        this.queryParameters = parameters.query
-      }
+    if (typeof parameters.query !== 'undefined' && this.isValidQueryParameters(parameters.query)) {
+      this.queryParameters = parameters.query
     }
     this._parameters = parameters
   }
