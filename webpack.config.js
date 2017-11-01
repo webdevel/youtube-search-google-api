@@ -19,7 +19,7 @@ module.exports = env => {
         sourceMap: true,
         uglifyOptions: {
           ecma: 6,
-          warnings: true
+          warnings: false
         }
       })
     )

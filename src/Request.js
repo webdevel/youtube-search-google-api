@@ -10,24 +10,10 @@ export default class Request {
    * @param  {Object}   specs      YouTube Search API Specification
    * @return {Request}              Request
    */
-  constructor(parameters, callback, specs) {
+  constructor(parameters = {}, callback, specs) {
     this.parameters = parameters
     this.callback = callback
     this.specs = specs
-  }
-  /**
-   * Getter for parameters.
-   * @return {Object} Headers and query request parameters
-   */
-  get parameters() {
-    return this._parameters
-  }
-  /**
-   * Setter for parameters.
-   * @param  {Object} parameters Headers and query request parameters
-   */
-  set parameters(parameters) {
-    this._parameters = parameters
   }
   /**
    * Getter for callback
