@@ -1,5 +1,8 @@
 # Release Notes
 
+## 0.5.0
+- modify document readme to add version and license badges
+
 ## 0.4.0
 - publish package via `npm` (Node.js package manager)
 - add document changelog
