@@ -1,6 +1,6 @@
 {
   "name": "youtube-search-google-api",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "YouTube Search Google API for Node.js. Search for YouTube videos, channels, playlists and live events via Google API for Node.js.",
   "main": "dist/youtube-search.js",
   "module": "lib/entry.js",
@@ -40,8 +40,7 @@
     "sinon": "^4.0.1",
     "sinon-chai": "^2.14.0",
     "uglifyjs-webpack-plugin": "^1.0.1",
-    "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.9.3"
+    "webpack": "^3.8.1"
   },
   "keywords": [
     "youtube",
