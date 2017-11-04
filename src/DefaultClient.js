@@ -10,7 +10,7 @@ export default class DefaultClient extends Client {
    * @return {Handler} Handles requests
    */
   get handler() {
-    if (typeof this._handler === 'undefined') {
+    if (undefined === this._handler) {
       this._handler = new XHRHandler()
     }
     return this._handler

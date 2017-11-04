@@ -31,7 +31,7 @@ export default class XHRHandler extends Handler {
    * @return {function} XHR client
    */
   get client() {
-    if (typeof this._client === 'undefined') {
+    if (undefined === this._client) {
       this._client = require('xhr')
     }
     return this._client
@@ -48,7 +48,7 @@ export default class XHRHandler extends Handler {
    * @return {Handler} Successor to delegate request if desired
    */
   get successor() {
-    if (typeof this._successor === 'undefined') {
+    if (undefined === this._successor) {
       this._successor = new HTTPHandler()
     }
     return this._successor
