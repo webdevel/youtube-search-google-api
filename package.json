@@ -1,6 +1,6 @@
 {
   "name": "youtube-search-google-api",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "YouTube Search Google API for Node.js. Search for YouTube videos, channels, playlists and live events via Google API for Node.js.",
   "main": "dist/youtube-search.js",
   "module": "lib/entry.js",
@@ -35,9 +35,9 @@
     "esdoc-standard-plugin": "^1.0.0",
     "mocha": "^4.0.1",
     "ncp": "^2.0.0",
-    "nyc": "^11.2.1",
+    "nyc": "^11.3.0",
     "rimraf": "^2.6.2",
-    "sinon": "^4.0.1",
+    "sinon": "^4.1.1",
     "sinon-chai": "^2.14.0",
     "uglifyjs-webpack-plugin": "^1.0.1",
     "webpack": "^3.8.1"
@@ -82,7 +82,7 @@
     "doc": "rimraf docs/* && esdoc",
     "test": "cross-env NODE_ENV=test nyc --reporter=text mocha --require babel-register --timeout 9000",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "webpack": "rimraf dist/* && webpack --env.production --env.NODE_ENV=production",
+    "webpack": "rimraf dist/* && webpack --env.production --env.NODE_ENV=production --define process.env.NODE_ENV=\"'production'\"",
     "webpack:dev": "webpack --env.development --env.NODE_ENV=development"
   },
   "contributors": [
