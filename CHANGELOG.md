@@ -1,5 +1,11 @@
 # Release Notes
 
+## 0.6.0
+- modify webpack config to add source maps support
+- modify readme to include downloads and dependencies badges
+- modify code to use better comparison for undefined
+- modify `package.json` to update dependencies
+
 ## 0.5.0
 - modify document readme to add version and license badges
 

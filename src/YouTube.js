@@ -18,7 +18,7 @@ export default class YouTube {
    * @return {Client} Client to invoke requests
    */
   get client() {
-    if (typeof this._client === 'undefined') {
+    if (undefined === this._client) {
       this._client = new DefaultClient()
     }
     return this._client

@@ -13,7 +13,7 @@ export default class SearchRequest extends Request {
    * @return {String} HTTP method: GET, POST...
    */
   get method() {
-    if (typeof this._method === 'undefined') {
+    if (undefined === this._method) {
       this._method = this.specs.method
     }
     return this._method
@@ -30,7 +30,7 @@ export default class SearchRequest extends Request {
    * @return {String} URL
    */
   get url() {
-    if (typeof this._url === 'undefined') {
+    if (undefined === this._url) {
       this._url = `${this.specs.uri}${this.query}`
     }
     return this._url
@@ -67,7 +67,7 @@ export default class SearchRequest extends Request {
       const key = keys[index]
       let param = find(params, { 'name': key })
 
-      if (typeof param === 'undefined') {
+      if (undefined === param) {
         result = false
         throw new Error('Invalid query parameter name specified: ' + key)
 
@@ -87,7 +87,7 @@ export default class SearchRequest extends Request {
         } else if (typeof param.values[0] !== 'string' && typeof param.values[0] !== 'number') {
 
           let value = find(param.values, { 'value': query[key]})
-          if (typeof value === 'undefined') {
+          if (undefined === value) {
             result = false
             throw new Error(`Invalid query parameter value for ${key} specified: ${query[key]}`)
           }
@@ -118,7 +118,7 @@ export default class SearchRequest extends Request {
    * @return {Object} Container of query parameters
    */
   get queryParameters() {
-    if (typeof this._queryParameters === 'undefined') {
+    if (undefined === this._queryParameters) {
       this._queryParameters = {
         part: 'snippet'
       }
@@ -140,7 +140,7 @@ export default class SearchRequest extends Request {
    * @return {Object} YouTube Search API specification
    */
   get specs() {
-    if (typeof this._specs === 'undefined') {
+    if (undefined === this._specs) {
       this._specs = searchSpec
     }
     return this._specs

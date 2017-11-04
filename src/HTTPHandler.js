@@ -26,7 +26,7 @@ export default class HTTPHandler extends Handler {
    * @return {function} HTTP client
    */
   get client() {
-    if (typeof this._client === 'undefined') {
+    if (undefined === this._client) {
       this._client = require('request')
     }
     return this._client

@@ -5,10 +5,13 @@ const targetDir = path.resolve(__dirname, 'dist')
 
 module.exports = env => {
 
+  // initialize for development environment
   let filename = '[name].js', plugins = []
+  let sourceMap = 'inline-source-map'
 
   if (env.production) {
 
+    sourceMap = 'source-map'
     filename = '[name].min.js'
     plugins.push(
       new UglifyJSPlugin({
@@ -48,6 +51,7 @@ module.exports = env => {
         }
       ]
     },
-    plugins: plugins
+    plugins: plugins,
+    devtool: sourceMap
   }
 }
